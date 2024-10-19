@@ -1,0 +1,37 @@
+
+.PageHeader{
+    height: 48px;
+    position: fixed;
+    top: 26px;
+    &__block1{
+        display: flex;
+        position: relative;
+        width: 1040px;
+        height: 48px;
+        align-items: center;
+    }
+    &__logo{
+        margin-right: 120px;
+        text-decoration: none;
+    }
+    &__nav-links{
+        margin-right: 27px;
+    }
+    &__nav{
+        text-decoration: none;
+        color: #52317D;
+    }
+    &__button{
+        position: absolute;
+        right: 0;
+        width: 169px;
+        height: 48px;
+        //к миксинам потом обязательно!!!
+        border-radius: 10px;
+        background-color: #52317D;
+        color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+}

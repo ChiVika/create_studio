@@ -1,0 +1,21 @@
+.MainPost{
+    &__block1{
+        display: flex;
+        background-image: linear-gradient(to bottom, #F7E4FF 43%, #C6D3F6 100%);
+        border-radius: 31px;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        height: 345px;
+    }
+    &__text{
+        font-size: 20px;
+        margin: 0;
+        color: #52317D;
+        &--fs50{
+            font-size: 50px;
+            margin-bottom: 32px;
+        }
+    }
+}
