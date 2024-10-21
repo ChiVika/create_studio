@@ -1,3 +1,4 @@
+import random
 from django.db import models
 from django.utils.translation import gettext as _
 
@@ -12,7 +13,7 @@ class Subsidiary(models.Model):
     phone = models.CharField(max_length=20, verbose_name="Телефон")
 
 class Teachers(models.Model):
-    photo = models.ImageField(upload_to="images/teachers/", verbose_name="Фото")
+    photo = models.ImageField(upload_to="server/images/teachers/", verbose_name="Фото")
     lastname = models.CharField(max_length=30, verbose_name="Фамилия")
     name = models.CharField(max_length=30, verbose_name="Имя")
     surname = models.CharField(max_length=30, verbose_name="Отчество")
@@ -27,7 +28,7 @@ class MasterClass(models.Model):
     сategories = models.ForeignKey(Сategories, on_delete=models.CASCADE, verbose_name="Категория")
     title = models.CharField(max_length=100, verbose_name="Заголовок")
     description = models.CharField(max_length=200, verbose_name="Описание")
-    image = models.ImageField(upload_to="images/masterclass/", verbose_name="Изображение")
+    image = models.ImageField(upload_to="server/images/masterclass/", verbose_name="Изображение")
     date = models.DateField(verbose_name="Дата проведения")
     time = models.TimeField(verbose_name="Время проведения")
 
@@ -37,14 +38,12 @@ class Tariffs(models.Model):
     price = models.FloatField(verbose_name="Стоимость")
 
 
-
 class Profile(models.Model):
-    user = models.ForeignKey(Users, on_delete=models.CASCADE, unique=True, verbose_name="Пользователь")
+    user = models.OneToOneField(Users, on_delete=models.CASCADE,primary_key=True, verbose_name="Пользователь")
     lastname = models.CharField(max_length=30, verbose_name="Фамилия")
     name = models.CharField(max_length=30, verbose_name="Имя")
-    photo = models.ImageField(upload_to="images/profile/", verbose_name="Аватарка")
+    photo = models.ImageField(upload_to="server/images/profile/", verbose_name="Аватарка")
     phone = models.CharField(max_length=20, verbose_name="Телефон")
-
 
 
 class Status(models.TextChoices):
@@ -52,10 +51,25 @@ class Status(models.TextChoices):
     СANCELED = "СANCELED", _('ОТМЕНЕН')
     FINISHED = "FINISHED", _('ОКОНЧЕН')
     
-
 class Records(models.Model):
+    masterClass = models.ForeignKey(MasterClass, on_delete=models.CASCADE, verbose_name="Мастер-класс")
+    user = models.ForeignKey(Users, on_delete=models.CASCADE, verbose_name="Пользователь")
     date = models.DateField(verbose_name="Дата записи")
-    status = models.CharField(choices=Status.choices, verbose_name="Статус", max_length=200)
+    status = models.CharField(choices=Status.choices, verbose_name="Статус", default=Status.BOOKING, max_length=200)
+    number = models.IntegerField(unique=True,verbose_name="Номер брони")
+
+    def save(self, *args, **kwargs):
+        if not self.number:
+            self.number = self.generate_unique_number()
+        super().save(*args, **kwargs)
+
+    @classmethod
+    def generate_unique_number(cls):
+        while True:
+            number = random.randint(100000000, 99999999)
+            if not cls.objects.filter(number=number).exists():
+                return number
+
 
 class Report(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE, verbose_name="Пользователь")
@@ -64,7 +78,7 @@ class Report(models.Model):
 
 class UserWorks(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE, verbose_name="Пользователь")
-    image = models.ImageField(upload_to="images/works/", verbose_name="Изображения")
+    image = models.ImageField(upload_to="server/images/works/", verbose_name="Изображения")
     text = models.CharField(max_length=30, verbose_name="Подпись")
     date = models.DateField(verbose_name="Дата публикации")
     time = models.TimeField(verbose_name="Время публикации")

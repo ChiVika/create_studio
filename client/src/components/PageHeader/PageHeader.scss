@@ -2,7 +2,9 @@
 .PageHeader{
     height: 48px;
     position: fixed;
-    top: 26px;
+    background-color: #fff;
+    top: 0px;
+    padding-top: 27px;
     &__block1{
         display: flex;
         position: relative;
