@@ -1,0 +1,40 @@
+.Categories{
+    // display: flex;
+    // justify-content: center;
+    display: block;
+    margin: 0 auto;
+    margin: 14px;
+    // flex-direction: column;
+
+    &__block{
+        padding: 0 30px;
+        border: 2px solid #B4B3B3;
+        border-radius: 10px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    &__block:hover{
+        background-color: #52317D;
+        border-color: #52317D;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+    &__text{
+        font-size: 16px;
+    }
+    &__conteiner{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        width: 849px;
+        margin: auto;
+    }
+    &__title{
+        color: #52317D;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 70px;
+        margin-bottom: 35px;
+    }
+}

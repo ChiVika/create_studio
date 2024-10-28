@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import './Categories.scss';
 function Categories() {
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -16,14 +16,17 @@ function Categories() {
 
     return (
       <>
-        <div>
-          {data.map(item => (
-            <div key={item.id}>
-              <h2>{item.name}</h2>
-              <h6>{item.description}</h6>
-            </div>
-          ))}
-    </div>
+      <div className='Categories'>
+        <h1 className='Categories__title'>Мастер-классы</h1>
+        <div className='Categories__conteiner'>
+              {data.map(item => (
+                <button key={item.id} className='Categories__block'>
+                  <p className='Categories__text'>{item.name}</p>
+                </button>
+              ))}
+          </div>
+      </div>
+        
       </>
     )
   }

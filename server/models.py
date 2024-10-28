@@ -66,7 +66,7 @@ class Records(models.Model):
     @classmethod
     def generate_unique_number(cls):
         while True:
-            number = random.randint(100000000, 99999999)
+            number = random.randint(10000000, 99999999)
             if not cls.objects.filter(number=number).exists():
                 return number
 

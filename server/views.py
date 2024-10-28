@@ -1,11 +1,6 @@
 # from django.shortcuts import render
 # from rest_framework.response import Response
 from rest_framework.decorators import api_view
-
-
-
-
-# Create your views here.
 from rest_framework import serializers, viewsets, permissions
 from django.http import JsonResponse
 from rest_framework.response import Response
@@ -15,6 +10,9 @@ from .serializers import CategoriesSerializer
 def getRoutes(req):
     
     return Response("Our API")
+
+
+
 class PostDatas(viewsets.ModelViewSet):
 
     queryset = Сategories.objects.all()

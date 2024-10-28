@@ -1,3 +1,4 @@
+
 import "./MainPost.scss";
 function MainPost({ children, className}) {
 

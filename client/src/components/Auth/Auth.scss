@@ -1,0 +1,21 @@
+.Auth{
+    background-image: linear-gradient(to bottom, #F7E4FF 43%, #C6D3F6 100%);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    &__block{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 600px;
+        margin: 100px auto auto;
+
+    }
+    &__title{
+        font-size: 35px;
+        color: #52317D;
+        margin-top: 200px;
+        text-align: center;
+    }
+
+}
