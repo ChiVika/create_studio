@@ -5,8 +5,11 @@ import MainPage from './pages/MainPage'
 import Categories from './components/categories/categories'
 import Authtorization from './pages/authorization'
 import Registration from './pages/Registation'
+import axios from 'axios';
+import { useEffect, useState } from "react";
 
 function App() {
+
 
   return (
     <>
@@ -21,8 +24,6 @@ function App() {
         <Route path='/authtorization' element={<Authtorization/>}/>
         <Route path='/registration' element={<Registration/>}/>
       </Routes>
-      
-      
     </>
   )
 }
