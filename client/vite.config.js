@@ -9,7 +9,7 @@ export default defineConfig({
   css: {
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
+        '@': './src',
       },
     },
     preprocessorOptions: {
@@ -17,7 +17,7 @@ export default defineConfig({
         api: 'modern-compiler',
         loaderOptions: {
           additionalData: `
-            @import "@/styles/variables.scss";
+            @import "./src/styles/variables.scss";
           `,
         },
       }

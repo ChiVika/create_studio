@@ -8,16 +8,39 @@ import Registration from './pages/Registation'
 import axios from 'axios';
 import { useEffect, useState } from "react";
 
-function App() {
+import "./styles/variables.scss";
 
+function App() {
+  const [user, setUser] = useState('');
+
+  useEffect(() => {
+    (
+      async () => {
+          const response = await fetch('http://127.0.0.1:8000/user/', {
+            method: "GET",
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+          });
+          const content = await response.json();
+          console.log(content)
+          setUser(content);
+          localStorage.setItem('userId', content.id)
+      }
+    )();
+    
+  }, []);
 
   return (
     <>
       <div className='App__container'>
-          <Pageheader />
+          <Pageheader user={user}/>
           <Routes>
             <Route path='/' element={<MainPage/>}/>
             <Route path='/123' element={<Categories/>}/>
+            <Route path='/profile'></Route>
+            
           </Routes>
       </div>
       <Routes>

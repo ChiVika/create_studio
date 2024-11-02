@@ -1,21 +1,80 @@
 .Register{
-    background-image: linear-gradient(to bottom, #F7E4FF 43%, #C6D3F6 100%);
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    &::after{
+        content: '';
+        width: 100%;
+        height: 551px;
+        background-image: linear-gradient(to bottom, #F7E4FF 43%, #C6D3F6 100%);
+        position: absolute;
+        z-index: 1;
+        top: 90px;
+        
+    }
     &__block{
         display: flex;
-        justify-content: center;
+        width: 610px;
+        height: 723px;
+        text-align: center;
         flex-direction: column;
-        width: 600px;
-        margin: 100px auto auto;
-
+        box-shadow: 1px 7px 27px rgba(0, 0, 0, 0.25);
+        position: relative;
+        background-color: #fff;
+        z-index: 2;
     }
     &__title{
+        margin-top: 91px;
+        margin-bottom: 100px;
         font-size: 35px;
         color: #52317D;
-        margin-top: 200px;
-        text-align: center;
+    }
+    &__title::before{
+        content: "";
+        width: 330px;
+        height: 55px;
+        background-image: linear-gradient(to right, #F7E4FF 43%, #C6D3F6 100%);
+        position: absolute;
+        top: 0;
+        left: 140px;
+    }
+    &__input{
+        width: 330px;
+        height: 56px;
+        padding: 0px 20px;
+        margin-bottom: 47px;
+        background-color: #DED8E4;
+        border: none;
+        border-radius: 10px;
+        color: #52317D;
+    }
+    &__input::placeholder{
+        color: #52317d7a;
+    }
+    &__input:focus{
+        outline: none;
+    }
+    &__btn{
+        width: 215px;
+        display: block;
+        margin: 0 auto;
+        height: 46px;
+        border-radius: 40px;
+        border: none;
+        background-image: linear-gradient(to right, #F7E4FF 43%, #C6D3F6 100%);
+        color: #52317D;
+        font-weight: 400;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    &__link{
+        text-decoration: none;
+        font-size: 16px;
+        margin-bottom: 54px;
+        
     }
 
 }

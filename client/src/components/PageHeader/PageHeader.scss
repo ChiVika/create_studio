@@ -22,6 +22,7 @@
     &__nav{
         text-decoration: none;
         color: #52317D;
+
     }
     &__button{
         display: flex;
@@ -38,6 +39,22 @@
         text-decoration: none;
         align-items: center;
         cursor: pointer;
+    }
+    &__auth{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        text-decoration: none;
+        align-items: center;
+        cursor: pointer;
+        &--svg{
+            width: 30px;
+            height: 30px;
+        }
+
     }
     &__button:hover{
         background-color: #30184f;

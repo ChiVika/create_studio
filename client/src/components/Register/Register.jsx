@@ -37,13 +37,16 @@ function Register() {
       <div className="Register" onSubmit={submitForm}>
         <form className="Register__block">
           <h2 className="Register__title">Регистрация</h2>
-          <input type="email"placeholder="Email" 
-            onChange={e => setEmail(e.target.value)}  required/>
-          <input type="password" placeholder="password" 
-            onChange={e => setPassword(e.target.value)} required/>
-          <input type="password" placeholder="repeat password" 
-            onChange={e => setRepeatPasswird(e.target.value)} required/>
-          <button type="submit">вход</button>
+          <div className="Register__content">
+            <input type="email"placeholder="Email" className="Register__input"
+              onChange={e => setEmail(e.target.value)}  required/>
+            <input type="password" placeholder="password" className="Register__input"
+              onChange={e => setPassword(e.target.value)} required/>
+            <input type="password" placeholder="repeat password" className="Register__input"
+              onChange={e => setRepeatPasswird(e.target.value)} required/>
+          </div>
+          
+          <button type="submit" className="Register__btn">Зарегистрироваться</button>
         </form>
       </div>
     </>

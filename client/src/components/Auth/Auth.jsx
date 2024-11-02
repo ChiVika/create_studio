@@ -9,6 +9,8 @@ function Auth() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const [user, setUser] = useState('');
+
   const submitForm = async (e) => {
     e.preventDefault();
 
@@ -27,6 +29,7 @@ function Auth() {
     })
     console.log("авторизация прошла успешно");
     navigate('/');
+    window.location.reload();
     // try{
       
     //   const response = await axios.post('http://127.0.0.1:8000/login/', JSON.stringify({
@@ -53,22 +56,28 @@ function Auth() {
     // }  
   }
 
+
   
 
 
   return (
     <>
       <div className="Auth" onSubmit={submitForm}>
-        <form className="Auth__block">
-          <h2 className="Auth__title">Авторизация</h2>
-          <input type="email"placeholder="Email"
-             onChange={e => setEmail(e.target.value)} required/>
-          <input type="password" placeholder="password"
-            onChange={e => setPassword(e.target.value)} required/>
-          <button type="submit">вход</button>
-          <Link to="/registration">Зарегистрироваться</Link>
-        </form>
-      </div>
+        
+          <form className="Auth__block">
+            <h2 className="Auth__title">Авторизация</h2>
+            <div className="Auth__content">
+              <input type="email" className="Auth__input" placeholder="Email"
+                onChange={e => setEmail(e.target.value)} required/>
+              <input type="password" className="Auth__input" placeholder="password"
+                onChange={e => setPassword(e.target.value)} required/>
+            </div>
+            <Link to="/registration" className="Auth__link">Зарегистрироваться</Link>
+            <button type="submit" className="Auth__btn">вход</button>
+            
+          </form>
+        </div>
+      
     </>
   )
 }
