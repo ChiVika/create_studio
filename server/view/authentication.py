@@ -47,7 +47,6 @@ class LoginView(APIView):
         response.data = {
             'jwt': token
         }
-        print(response.data)
         return response
 
 class UserView(APIView):

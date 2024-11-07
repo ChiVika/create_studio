@@ -61,15 +61,11 @@ function Pageheader({user}) {
           <div className="PageHeader__nav-links">
             <Link to="/123" className="PageHeader__nav">Мастер-классы</Link>
           </div>
-          {/* <div className="PageHeader__nav-links">
+          <div className="PageHeader__nav-links">
               <Link to="/1234" className="PageHeader__nav">Преподаватели</Link>
-            </div> */}
-          {/* {user.detail === 'Не аунтифицирован!' ? (<Link to="/authtorization" className="PageHeader__button">Вход</Link>) :
-          (<Link to="/authtorization" className="PageHeader__auth">
-            <img src={users} alt='user' className="PageHeader__auth--svg"/>
-          </Link>)} */}
-          {user.detail === 'Не аунтифицирован!' ? (<Link to="/authtorization" className="PageHeader__button">Вход</Link>) :
-          (<Link to="/authtorization" className="PageHeader__auth">
+            </div>
+          {(user.detail === 'Не аунтифицирован!' || user.detail === "Пользователь не найден") ? (<Link to="/authtorization" className="PageHeader__button">Вход</Link>) :
+          (<Link to="/profile" className="PageHeader__auth">
             <img src={users} alt='user' className="PageHeader__auth--svg"/>
           </Link>)}
         </div>

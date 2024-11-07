@@ -14,22 +14,37 @@ function Auth() {
   const submitForm = async (e) => {
     e.preventDefault();
 
-    await fetch('http://127.0.0.1:8000/login/',{
-      method: "POST",
-      headers:{
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include',
-      withCredentials: true,
-      body: JSON.stringify({
-        email, password
+    try{
+      await fetch('http://127.0.0.1:8000/login/',{
+        method: "POST",
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        withCredentials: true,
+        body: JSON.stringify({
+          email, password
+        })
+          
       })
+      .then(response => {
+        if(response.ok){
+          console.log("авторизация прошла успешно");
+          navigate('/');
+          window.location.reload();
+        }
+        else{
+          console.log('Ошибка авторизации');
+        }
 
-        
-    })
-    console.log("авторизация прошла успешно");
-    navigate('/');
-    window.location.reload();
+      })
+      
+    }
+    catch(error){
+      console.error(error);
+      console.log('Ошибка авторизации');
+    }
+    
     // try{
       
     //   const response = await axios.post('http://127.0.0.1:8000/login/', JSON.stringify({

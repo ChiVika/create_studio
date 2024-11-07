@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 
 import "./styles/variables.scss";
+import ProfileUser from './pages/ProfileUser'
 
 function App() {
   const [user, setUser] = useState('');
@@ -39,8 +40,7 @@ function App() {
           <Routes>
             <Route path='/' element={<MainPage/>}/>
             <Route path='/123' element={<Categories/>}/>
-            <Route path='/profile'></Route>
-            
+            <Route path='/profile' element={<ProfileUser user={user}/>}/>
           </Routes>
       </div>
       <Routes>

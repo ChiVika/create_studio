@@ -55,10 +55,10 @@ class Tariffs(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE,primary_key=True, verbose_name="Пользователь")
-    lastname = models.CharField(max_length=30, verbose_name="Фамилия")
-    name = models.CharField(max_length=30, verbose_name="Имя")
-    photo = models.ImageField(upload_to="server/images/profile/", verbose_name="Аватарка")
-    phone = models.CharField(max_length=20, verbose_name="Телефон")
+    lastname = models.CharField(max_length=30, verbose_name="Фамилия", blank=True, null=True)
+    name = models.CharField(max_length=30, verbose_name="Имя", blank=True, null=True)
+    photo = models.ImageField(upload_to="server/images/profile/", verbose_name="Аватарка", blank=True, null=True)
+    phone = models.CharField(max_length=20, verbose_name="Телефон", blank=True, null=True)
 
 
 class Status(models.TextChoices):
