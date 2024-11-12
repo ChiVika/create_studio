@@ -1,22 +1,21 @@
 import random
 from django.db import models
 from django.utils.translation import gettext as _
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class Users(models.Model):
     email = models.CharField(max_length=100, verbose_name="Почта пользователя", unique=True)
     password = models.CharField(max_length=50, verbose_name="Пароль")
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    # USERNAME_FIELD = 'email'
+    # REQUIRED_FIELDS = []
 
-    @property
-    def is_anonymous(self):
-        return False
+    # @property
+    # def is_anonymous(self):
+    #     return False
 
-    @property
-    def is_authenticated(self):
-        return self.id is not None
+    # @property
+    # def is_authenticated(self):
+    #     return self.id is not None
 
     def check_password(self, raw_password):
         return self.password == raw_password

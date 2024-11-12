@@ -6,20 +6,26 @@ from rest_framework.routers import DefaultRouter
 from . import views
 from .view.authentication import Register, LoginView, UserView, LogoutView
 from .view.profile import *
+from .view.masterClass import *
 router = DefaultRouter()
 router.register('', views.PostDatas)
-
 
 
 urlpatterns = [
     path('', views.getRoutes, name="routes"),
     path("cat/", include(router.urls)),
+
     path("register/", Register.as_view(), name='register'),
     path("login/", LoginView.as_view(), name='login'),
     path('user/', UserView.as_view(), name='user'),
     path('logout/', LogoutView.as_view(), name='logout'),
 
-
     path('profile/', BIOView.as_view(), name='profile'),
+
+    path('posts/', views.CatViews.as_view(), name='posts'),
+    path('posts/<int:ids>/', views.CatViewsId.as_view(), name='posts_id'),
+
+    path("masterClass/<int:category_id>/", PostsViews.as_view(), name="mc")
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

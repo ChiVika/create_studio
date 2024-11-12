@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import Сategories, Users, Profile
+from .models import Сategories, Users, Profile, MasterClass
 # from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from django.contrib.auth.password_validation import validate_password
@@ -24,4 +24,9 @@ class UserSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
+        fields = "__all__"
+
+class MasterClassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MasterClass
         fields = "__all__"

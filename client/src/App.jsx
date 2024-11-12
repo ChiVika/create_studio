@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 import "./styles/variables.scss";
 import ProfileUser from './pages/ProfileUser'
+import McpostsPage from './pages/McpostsPage'
 
 function App() {
   const [user, setUser] = useState('');
@@ -41,6 +42,7 @@ function App() {
             <Route path='/' element={<MainPage/>}/>
             <Route path='/123' element={<Categories/>}/>
             <Route path='/profile' element={<ProfileUser user={user}/>}/>
+            <Route path='/posts/:id/' element={<McpostsPage/>}/>
           </Routes>
       </div>
       <Routes>

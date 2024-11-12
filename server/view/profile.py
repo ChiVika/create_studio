@@ -1,7 +1,3 @@
-from datetime import datetime
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-from django.http import JsonResponse
 from rest_framework.exceptions import AuthenticationFailed
 from ..models import Users, Profile
 from ..serializers import UserSerializer, ProfileSerializer
