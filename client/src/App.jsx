@@ -14,6 +14,7 @@ import McpostsPage from './pages/McpostsPage'
 
 function App() {
   const [user, setUser] = useState('');
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
     (
@@ -33,6 +34,12 @@ function App() {
     )();
     
   }, []);
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+  },[])
 
   return (
     <>
@@ -42,7 +49,7 @@ function App() {
             <Route path='/' element={<MainPage/>}/>
             <Route path='/123' element={<Categories/>}/>
             <Route path='/profile' element={<ProfileUser user={user}/>}/>
-            <Route path='/posts/:id/' element={<McpostsPage/>}/>
+            <Route path='/posts/:id/' element={<McpostsPage user={user} user_id={userId}/>}/>
           </Routes>
       </div>
       <Routes>

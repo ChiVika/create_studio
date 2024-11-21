@@ -11,5 +11,101 @@
         margin-top: 16px;
         color: #52317D;
         text-align: center;
+        margin-bottom: 25px;
+    }
+    &__container{
+        display: flex;
+        gap: 100px;
+        margin-bottom: 100px;
+    }
+    &__content{
+        width: 465px;
+        position: relative;
+    }
+    &__picture{
+        width: 337px;
+    }
+    &__title-post{
+        margin-top: 0;
+        margin-bottom: 0px;
+        font-size: 30px;
+        padding: 10px 20px;
+        color: #52317D;
+        margin-top: 15px;
+        
+        text-align: center;
+    }
+    &__descr-post{
+        display: flex;
+        justify-content: center;
+        color: #52317D;
+        text-align: center;
+        margin-bottom: 25px;
+        margin-top: 0;
+    }
+    &__otherContent{
+        color: #52317D;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    &__tariffs{
+        margin-left: 60px;
+    }
+    &__tariffone{
+        font-weight: 600;
+        color: #52317D;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    &__tariffs::before{
+        content: "";
+        display: block;
+        width: 246px;
+        height: 2px;
+        background-color: #52317D;
+        margin-left: -20px;
+        margin-bottom: 10px;
+    }
+    &__tariffs::after{
+        content: "";
+        display: block;
+        width: 246px;
+        height: 2px;
+        background-color: #52317D;
+        margin-left: -20px;
+        margin-top: 10px;
+    }
+    &__btn{
+        position: absolute;
+        bottom: 30px;
+        right: 0px;
+        width: 169px;
+        height: 48px;
+        border-radius: 10px;
+        color: #000;
+        font-size: 16px;
+        background-color: transparent;
+        border: 2px solid #B4B3B3;
+        text-decoration: none;
+        align-items: center;
+        cursor: pointer;
+    }
+    &__btn:hover{
+        background-color: #52317D;
+        transition: background-color, font-size 0.3s ease;
+        font-size: 18px;
+        color: white;
+        border: none;
+    }
+    &__showMore{
+        width: 189px;
+        border-radius: 10px;
+        height: 49px;
+        background-color: #52317D;
+        font-size: 18px;
+        color: white;
+        border: none;
+        margin-bottom: 100px;
+        cursor: pointer;
     }
 }

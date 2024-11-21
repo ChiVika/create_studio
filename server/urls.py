@@ -25,7 +25,12 @@ urlpatterns = [
     path('posts/', views.CatViews.as_view(), name='posts'),
     path('posts/<int:ids>/', views.CatViewsId.as_view(), name='posts_id'),
 
-    path("masterClass/<int:category_id>/", PostsViews.as_view(), name="mc")
+    path("masterClass/<int:category_id>/", PostsViews.as_view(), name="mc"),
+    path("subsidary/<int:sub_id>/", SubViewsId.as_view(), name="sub"),
+    path("teacher/<int:teacher_id>/", TeacherViewId.as_view(), name="teacher"),
+    path("tariff/<int:mc_id>/", TeariffsViewsId.as_view(), name="terrifs"),
+    path("record/<int:mc_id>/<int:user_id>/", RecordView.as_view(), name="record"),
+    path("recordsall/", RecordViewsall.as_view(), name="records_all")
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

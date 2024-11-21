@@ -70,6 +70,14 @@
         font-size: 16px;
         cursor: pointer;
     }
+
+    &__btn:hover{
+        font-size: 20px;
+        font-weight: 400;
+        background-image: linear-gradient(to right, #CBAADA 43%, #7D8CBC 100%);
+
+    }
+
     &__link{
         text-decoration: none;
         font-size: 16px;

@@ -1,6 +1,6 @@
 from rest_framework.exceptions import AuthenticationFailed
-from ..models import Users, Profile
-from ..serializers import UserSerializer, ProfileSerializer
+from ..models import *
+from ..serializers import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
 import jwt, datetime
@@ -49,4 +49,23 @@ class BIOView(APIView):
             raise AuthenticationFailed('Пользователь не найден')
         profile = Profile.objects.get(user=user)
         serializer = ProfileSerializer(profile)
+        return Response(serializer.data)
+    
+class RecordViewsall(APIView):
+    def get(self, request):
+        token = request.COOKIES.get('jwt')
+        if not token:
+            raise AuthenticationFailed('Не аутентифицирован!')
+
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Токен истек!')
+        
+        user = Users.objects.filter(id=payload['id']).first()
+        if user is None:
+            raise AuthenticationFailed('Пользователь не найден')
+        
+        records = Records.objects.filter(user=user)
+        serializer = RecordsSerializer(records, many=True)
         return Response(serializer.data)

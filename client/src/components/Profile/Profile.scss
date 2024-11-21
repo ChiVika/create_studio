@@ -6,12 +6,17 @@
         color: #52317D;
     }
     &__container{
-        // display: grid;
-        // grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        grid-template-areas: 
+            "bio record" 
+            "report record";
+
         
     }
     &__bio{
         display: block;
+        grid-area: bio;
         position: relative;
         margin-top: 105px;
         background-image: linear-gradient(to bottom, #F7E4FF 43%, #C6D3F6 100%);
@@ -83,5 +88,45 @@
         color: #fff;
         border-color: #52317D;
         transition: background-color 0.3s ease;
+    }
+}
+
+
+.Record{
+    grid-area: record;
+    &__title{
+        margin-top: 105px;
+        display: flex;
+        justify-content: center;
+        color: #52317D;
+        margin-bottom: 36px;
+    }
+    &__container{
+        display: flex;
+        justify-content: center;
+        width: 454px;
+        height: 56px;
+        border-radius: 32px;
+        background-color: #C9D4F6;
+        color: #52317D;
+        font-size: 16px;
+        border: none;
+        text-decoration: none;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 27px;
+    }
+    &__content{
+        font-size: 20px;
+    }
+}
+.Report{
+    grid-area: report;
+    &__title{
+        margin-top: 130px;
+        color: #52317D;
+        font-size: 20px;
+        max-width: 439px;
+        text-align: center;
     }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import "./Profile.scss";
+import "./Record.scss";
 
 
 function Profile() {
@@ -11,6 +12,8 @@ function Profile() {
     phone: '',
     photo: null
   });
+
+  const [records, setRecords] = useState([]);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -26,6 +29,25 @@ function Profile() {
 
     fetchProfile();
   },[])
+
+
+  useEffect(() => {
+    const fetchRecords = async () => {
+      try{
+        const response = await axios.get("http://127.0.0.1:8000/recordsall/", {
+          withCredentials: true
+        });
+        console.log(response.data);
+        setRecords(response.data);
+      }
+      catch (error) {
+        console.log("error: ", error);
+      }
+    }
+
+    fetchRecords();
+  },[])
+
 
   const ProfileEdit = () => {
     setIsEditing(true);
@@ -53,7 +75,7 @@ function Profile() {
         withCredentials: true
       });
       console.log('Profile saved:', response.data);
-      setProfile(response.data); // Обновить состояние профиля после сохранения
+      setProfile(response.data);
     } catch (error) {
       console.error('Error saving profile:', error);
     }
@@ -107,9 +129,25 @@ function Profile() {
             </>
           )}
         </div>
+        <div className="Record">
+          <h2 className="Record__title">Ближайшие записи</h2>
+          {records.slice(0,3).map(record => (
+            <div className="Record__container" key={record.id}>
+              <div className="Record__content">{record.number}</div>
+            </div>
+          ))}
+          
+        </div>
+        <div className="Report">
+          <h2 className="Report__title">Формирование отчета о занятиях преподавателя</h2>
+
+        </div>
+        
       </div>
     </>
   );
 }
 
 export default Profile;
+
+ 
