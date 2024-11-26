@@ -50,3 +50,8 @@ class RecordsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Records
         fields = "__all__"
+
+class UserWorksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserWorks
+        fields = "__all__"        

@@ -1,0 +1,59 @@
+.Report{
+    grid-area: report;
+    &__title{
+        margin-top: 130px;
+        color: #52317D;
+        font-size: 20px;
+        max-width: 439px;
+        text-align: center;
+    }
+    &__select{
+        width: 260px;
+        margin-left: 15px;
+        max-height: 35px;
+        background-color: transparent;
+        border: none;
+        margin-right: 7px;
+    }
+    &__select:focus{
+        outline: none;
+    }
+    &__btn{
+        width: 118px;
+        margin-left: 19px;
+        background-color: transparent;
+        border: none;
+        color: #52317D;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+    }
+    &__content{
+        display: flex;
+        align-items: center;
+        width: 454px;
+        height: 57px;
+        background-color: #C9D4F6;
+        border-radius: 37px;
+        margin-top: 39px;
+    }    
+    &__content1{
+        width: 267px;
+        display: flex;
+        text-align: center;
+        height: 35px;
+        margin-left: 15px;
+        background-color: #fff;
+        border-radius: 43px;
+
+    }
+    &__td{
+        padding: 10px;
+        font-size: 8px;
+    }
+    &__th{
+        font-size: 9px;
+        padding: 10px;
+    }
+    
+}

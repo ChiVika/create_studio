@@ -88,10 +88,10 @@ function Posts({user, user_id}) {
   const createRecord = async(postid) => {
       const res = await axios.post(`http://127.0.0.1:8000/record/${postid}/${user_id}/`)
       .then(response => {
-        console.log("Ураааа))");
+        alert("Вы успешно записаны на мастер-класс");
       })
       .catch(error => {
-        console.log("НОООУ!(((")
+        alert("Вы уже записаны на мастер-класс");
       })
         
         

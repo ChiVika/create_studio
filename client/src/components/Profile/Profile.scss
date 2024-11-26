@@ -39,6 +39,8 @@
         color: #52317D;
         font-weight: 600;
         background-color: transparent;
+
+        
     }
     &__input::placeholder{
         color: rgba(82, 49, 125, 0.5);
@@ -54,13 +56,19 @@
         border-radius: 117px;
         top: 30px;
         right: -80px;
+
+
     }
     &__input-photo{
+        position: absolute;
         width: 162px;
         height: 155px;
         border-radius: 117px;
         overflow: hidden;
         cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+        
     }
     &__text{
         margin: 0;
@@ -89,6 +97,15 @@
         border-color: #52317D;
         transition: background-color 0.3s ease;
     }
+    &__input-file{
+        position: absolute;
+        width: 162px;
+        height: 155px;
+        border-radius: 117px;
+        left: 0;
+        object-fit: cover;
+        z-index: 1;
+    }
 }
 
 
@@ -101,11 +118,16 @@
         color: #52317D;
         margin-bottom: 36px;
     }
+    &__text{
+        color: #52317D;
+        padding: 0 10px;
+        max-width: 300px;
+        font-weight: 600;
+    }
     &__container{
         display: flex;
-        justify-content: center;
         width: 454px;
-        height: 56px;
+        min-height: 56px;
         border-radius: 32px;
         background-color: #C9D4F6;
         color: #52317D;
@@ -116,17 +138,18 @@
         cursor: pointer;
         margin-bottom: 27px;
     }
+    &__container:hover{
+        background-color: rgb(230, 109, 109);
+        transition: background-color 0.3s ease;
+        transition-timing-function: ease-in-out;
+
+    }
     &__content{
         font-size: 20px;
     }
-}
-.Report{
-    grid-area: report;
-    &__title{
-        margin-top: 130px;
-        color: #52317D;
-        font-size: 20px;
-        max-width: 439px;
-        text-align: center;
+    &__time{
+        margin-left: auto;
+        
     }
+    
 }
